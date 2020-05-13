@@ -20,18 +20,18 @@ function evenNum(){
         calculateEvenNum(number1,number2);
     }
 }
-function calculateEvenNum(firstNum, secondNum){
+function calculateEvenNum(Num1, Num2){
     var eNumArray = [];
     var sNum = 0;
     var bNum = 0;
 
-    if (firstNum > secondNum){
-        sNum = secondNum;
-        bNum = firstNum;
+    if (Num1 > Num2){
+        sNum = Num2;
+        bNum = Num1;
     }
-    else if (firstNum < secondNum){
-        sNum = firstNum;
-        bNum = secondNum;
+    else if (Num1 < Num2){
+        sNum = Num1;
+        bNum = Num2;
     }
 
     while(sNum <= bNum){
@@ -46,6 +46,8 @@ function calculateEvenNum(firstNum, secondNum){
     console.log(eNumArray);
     document.getElementById("result").innerHTML = "There are " + eNumArray.length +" even numbers:";
     document.getElementById("msg").innerHTML = eNumArray;
+    document.getElementById("result").style.color="blue";
+    document.getElementById("msg").style.color="blue";
 }
 
 function isEven(num) {
