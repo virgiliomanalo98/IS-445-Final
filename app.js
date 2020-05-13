@@ -9,20 +9,16 @@ function evenNum(){
         document.getElementById("result").innerHTML = "";
         document.getElementById("msg").style.color="red";
         document.getElementById("result").style.color="red";
-        document.getElementById("array").innerHTML="";
+        
     }
     if (number2 <= 2 || number2 >= 100){
         document.getElementById("msg").innerHTML += "Number 1 input" + number2 + " is not a valid number.";
         document.getElementById("result").innerHTML = "";
         document.getElementById("msg").style.color="red";
         document.getElementById("result").style.color="red";
-        document.getElementById("array").innerHTML="";
     }
     else if (number1 >= 2 && number1 <= 100 && number2 >= 2 && number2 <= 100){
         calculateEvenNum(number1,number2);
-        document.getElementById("msg1").innerHTML="";
-        document.getElementById("msg2").innerHTML="";
-
     }
 }
 function calculateEvenNum(Num1, Num2){
