@@ -3,58 +3,60 @@ function evenNum(){
     var number2 = parseInt(document.getElementById("number2").value);
 
     // check if the numbers fit criteria
-    if (number1 <= 2 || number1 >= 100 || number2 <= 2 || number2 >= 100){
-        document.getElementById("message").innerHTML = "Invalid input, please try again.";
+    if (number1 <= 2 || number1 >= 100){
+        console.log(parseInt(number1,10));
+        document.getElementById("msg").innerHTML += "Number 1 input" + number1 + " is not a valid number.";
+        document.getElementById("result").innerHTML = "";
+        document.getElementById("msg").style.color="red";
+        document.getElementById("result").style.color="red";
+    }
+    if (number2 <= 2 || number2 >= 100){
+        document.getElementById("msg").innerHTML += "Number 1 input" + number2 + " is not a valid number.";
+        document.getElementById("result").innerHTML = "";
+        document.getElementById("msg").style.color="red";
+        document.getElementById("result").style.color="red";
     }
     else if (number1 >= 2 && number1 <= 100 && number2 >= 2 && number2 <= 100){
         calculateEvenNum(number1,number2);
-        //document.getElementById("msg").innerHTML = "";
     }
 }
-function isEven(num){
-    var res = true;
-    for (var i=2; i<=Math.ceil(num/2); i++){
-        if((num%i)==0){
-            res = false;
-            break;
-        }
-    }
-    return res;
-}
-function calculateEvenNum(numOne,numTwo){
-    //alert("calculating");
-    var pNumArray = [];
+function calculateEvenNum(firstNum, secondNum){
+    var eNumArray = [];
     var sNum = 0;
     var bNum = 0;
 
-
-    if (numOne > numTwo){
-        sNum = numTwo;
-        bNum = numOne;
+    if (firstNum > secondNum){
+        sNum = secondNum;
+        bNum = firstNum;
     }
-    else if (numOne < numTwo){
-        sNum = numOne;
-        bNum = numTwo;
+    else if (firstNum < secondNum){
+        sNum = firstNum;
+        bNum = secondNum;
     }
-
-    console.log(sNum);
-    console.log(bNum);
 
     while(sNum <= bNum){
-        console.log("in while");
-
-        console.log(isEven(3));
-        if(isEvensNum) == true){
-            console.log(sNum);
-            pNumArray.push(sNum);
+        if(isEven(sNum) == true){
+            eNumArray.push(sNum);
             sNum = sNum + 1;
         }
         else if (isEven(sNum) == false){
-            console.log(sNum);
             sNum = sNum + 1;
         }
     }
-    console.log(pNumArray);
-    document.getElementById("primeNumber").innerHTML = "There are " + pNumArray.length +" even numbers.";
-    document.getElementById("message").innerHTML = pNumArray;
+    console.log(eNumArray);
+    document.getElementById("result").innerHTML = "There are " + eNumArray.length +" even numbers:";
+    document.getElementById("msg").innerHTML = eNumArray;
+}
+
+function isEven(num) {
+    res = true;
+    for (var i=num; i<=num+1; i++){
+        if (num%2 == 0){
+            res = true;
+        }
+        else{
+            res = false;
+        }
+        return res;
+    }
 }
